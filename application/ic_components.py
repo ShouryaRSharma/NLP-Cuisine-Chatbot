@@ -4,11 +4,15 @@ import nltk
 import pandas as pd
 import numpy as np
 import scipy.sparse as sp
+import re
+import random
+import logging
 
 from copy import deepcopy
 from collections import namedtuple
 from utility_methods import dump_model
-from words import wordnet_POS_conversion , AMERICAN, EUROPEAN, ASIAN, STOP_WORDS, FARWELL, GREETING, REJECT, CONFIRM, CANCEL, UPDATE, ORDER
+from words import wordnet_POS_conversion , AMERICAN, EUROPEAN, ASIAN, STOP_WORDS, FARWELL, GREETING, REJECT, CONFIRM, CANCEL, UPDATE, ORDER, order, greetingOrder, changeOrder, reviseOrder
+from simpletransformers.classification import MultiLabelClassificationModel, MultiLabelClassificationArgs
 
 from nltk.stem.porter import PorterStemmer
 from nltk.stem import WordNetLemmatizer
@@ -514,8 +518,181 @@ def train_cuisine_classifier():
 
     return cuisine_classifier
 
+# helper function for deciding what dictionary and subsequent array to append the food sentence on to
+def add_data(train, test, key):
+    FOOD_SENTENCE_LIMIT = 85
+    return train[key] if len(train[key]) < FOOD_SENTENCE_LIMIT else test[key]
+
+def generateDataset():
+    # read in the food csv file
+    food_dataset = pd.read_csv("./data/food.csv")
+    # diaqualify foods with special characters, lowercase and extract results from "description" column
+    foods = food_dataset[food_dataset["description"].str.contains("[^a-zA-Z ]") == False]["description"].apply(lambda food: food.lower())
+
+   
+    foods = foods[foods["description"].str.contains("[^a-zA-Z ]") == False]["description"].apply(lambda food: food.lower())
     
+    # filter out foods with more than 2 words, drop any duplicates
+    foods = foods[foods.str.split().apply(len) <= 2].drop_duplicates()
+    one_worded_foods = foods[foods.str.split().apply(len) == 1]
+    two_worded_foods = foods[foods.str.split().apply(len) == 2]
+    total_num_foods = round(one_worded_foods.size / 45 * 100)
+
+    # shuffle the 2-worded foods since we'll be slicing them
+    two_worded_foods = two_worded_foods.sample(frac=1)
+    # append the foods together 
+    foods = one_worded_foods.append(two_worded_foods[:round(total_num_foods * 0.30)])
+
+    train_data = {
+        "order": [],
+        "greetingOrder": [],
+        "changeOrder": [],
+        "reviseOrder": []
+    }
+
+    test_data = {
+        "order": [],
+        "greetingOrder": [],
+        "changeOrder": [],
+        "reviseOrder": []
+    }
+    # the pattern to replace from the template sentences
+    pattern_to_replace = "{}"
+
+    # shuffle the data before starting
+    foods = foods.sample(frac=1)
+
+    # the count that helps us decide when to break from the for loop
+    food_entity_count = foods.size - 1
+
+    # start the while loop, ensure we don't get an index out of bounds error
+    while food_entity_count >= 2:
+        # pick a random food template
+        sentence = order[random.randint(0, len(order) - 1)]
+
+        # find out how many braces "{}" need to be replaced in the template
+        matches = re.findall(pattern_to_replace, sentence)
+
+        # for each brace, replace with a food entity from the shuffled food data
+        for match in matches:
+            food = foods.iloc[food_entity_count]
+            food_entity_count -= 1
+
+            # replace the pattern, but then find the match of the food entity we just inserted
+            sentence = sentence.replace(match, food, 1)
+        # append the sentence and the position of the entities to the correct dictionary and array
+        add_data(train_data, test_data, "order").append([sentence, (0, 0, 0, 0, 0, 0, 1)])
+
+        # pick a random food template
+        sentence = greetingOrder[random.randint(0, len(greetingOrder) - 1)]
+
+        # find out how many braces "{}" need to be replaced in the template
+        matches = re.findall(pattern_to_replace, sentence)
+        # print(matches)
+        # for each brace, replace with a food entity from the shuffled food data
+        for match in matches:
+            food = foods.iloc[food_entity_count]
+            food_entity_count -= 1
+
+            # replace the pattern, but then find the match of the food entity we just inserted
+            sentence = sentence.replace(match, food, 1)
+        add_data(train_data, test_data, "greetingOrder").append([sentence, (0, 1, 0, 0, 0, 0, 1)])
+
+        # pick a random food template
+        sentence = changeOrder[random.randint(0, len(changeOrder) - 1)]
+
+        # find out how many braces "{}" need to be replaced in the template
+        matches = re.findall(pattern_to_replace, sentence)
+        # print(len(matches))
+        # for each brace, replace with a food entity from the shuffled food data
+        for match in matches:
+            food = foods.iloc[food_entity_count]
+            food_entity_count -= 1
+
+            # replace the pattern, but then find the match of the food entity we just inserted
+            sentence = sentence.replace(match, food, 1)
+        add_data(train_data, test_data, "changeOrder").append([sentence, (0, 0, 0, 0, 0, 0, 1)])
+
+        # pick a random food template
+        sentence = reviseOrder[random.randint(0, len(changeOrder) - 1)]
+
+        # find out how many braces "{}" need to be replaced in the template
+        matches = re.findall(pattern_to_replace, sentence)
+        if matches:
+            for match in matches:
+                food = foods.iloc[food_entity_count]
+                food_entity_count -= 1
+
+                # replace the pattern, but then find the match of the food entity we just inserted
+                sentence = sentence.replace(match, food, 1)
+            add_data(train_data, test_data, "reviseOrder").append([sentence, (0, 0, 0, 0, 0, 1, 0)])
+        else:
+            add_data(train_data, test_data, "reviseOrder").append([sentence, (0, 0, 0, 0, 0, 1, 0)])
+        
+    trainData = train_data['order'] + train_data['greetingOrder'] + train_data['changeOrder'] + train_data['reviseOrder']
+    greetingResponses = ["Hi", "Hello", "Greetings!", "Hey!", "Hola", "Hi there", "Hey there!", "Hello!", "Hiyah!" "Hello", "Hi", "Hey", "Hi there", "Hello can I get some help", "Hey there", "Hello"]
+    farewellResponses = ["Thanks so much! Bye.", "Thanks for the help.", "Bye bye.", "Goodbye.","Cheers for the help.","Great thanks.","Bye","That's all I want thanks.", "No that's everything thanks."]
+    cancelResponses = [
+        "I'd like to cancel the order sorry",
+        "I want to remove everything",
+        "I want to scap everything ",
+        "Can we get rid of my order please",
+        "I'd like to drop it actually",
+        "Let's just scrap that and get rid of everything",
+        "I want to cancel my order",
+        "I want to scrap my order",
+        "I want to get rid of everything",
+        "Can I cancel my order please",
+    ]
+    confirmResponses = ["Yes.", "Yeah", "Okay", "Yes please that works", "Sure okay yeah", "That would be great", "Sure", "Right yeah",
+                        "Okay yes", "I'd like that thanks", "Yeah that works for me", "Absolutely", "Thanks yeah", "Okay great", "Perfect",
+                        "Sounds good", "Sounds great to me", "Yeah that would be perfect thanks", "I can confirm that yeah", "Sure that works"]
+    rejectionResponses = ["No thanks actually", "No", "I'm okay actually", "I'm good thanks", "Nope", "I think I'm alright", 
+                        "I don't need anything else", "That's all thanks", "I don't want anything else", "That's fine actually",
+                        "No I don't need anything else"]
+    for i in range(30):
+        greeting = random.choice(greetingResponses)
+        farewell = random.choice(farewellResponses)
+        cancel = random.choice(cancelResponses)
+        confirm = random.choice(confirmResponses)
+        rejection = random.choice(rejectionResponses)
+        trainData.append([greeting, (0, 1, 0, 0, 0, 0, 0)])
+        trainData.append([farewell, (1, 0, 0, 0, 0, 0, 0)])
+        trainData.append([cancel, (0, 0, 0, 0, 1, 0, 0)])
+        trainData.append([confirm, (0, 0, 0, 1, 0, 0, 0)])
+        trainData.append([rejection, (0, 0, 1, 0, 0, 0, 0)])
+    return trainData
+
+def train_intent_classifier():
+    logging.basicConfig(level=logging.INFO)
+    transformers_logger = logging.getLogger("transformers")
+    transformers_logger.setLevel(logging.WARNING)
+
+    train_df = pd.DataFrame(generateDataset())
+    train_df.columns = ["text", "labels"]
+    train_df, eval_df = train_test_split(train_df, test_size=0.2, random_state=42)
+    # Preparing eval data
+
+    # Optional model configuration
+    model_args = MultiLabelClassificationArgs(num_train_epochs=5)
+    model_args.overwrite_output_dir = True
+    model_args.use_multiprocessing = False
+    model_args.use_multiprocessing_for_evaluation = False
+    model_args.silent = True
+    # Create a ClassificationModel
+    model = MultiLabelClassificationModel(
+        'roberta',
+        'roberta-base',
+        num_labels=7,
+        args=model_args,
+        use_cuda=True,
+        
+    ) 
+    model.train_model(train_df, output_dir="actual")
+    return model
 if __name__ == "__main__":
 
+    intent_classifier = train_intent_classifier()
+    dump_model(intent_classifier, "intent_classifier.pickle", path=r"./models/")
     cuisine_classifier = train_cuisine_classifier()
     dump_model(cuisine_classifier, "cuisine_classifier.pickle", path=r"./models/")

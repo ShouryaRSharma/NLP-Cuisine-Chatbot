@@ -54,4 +54,3 @@ CANCEL = [
     "scratch",
     "abandon"
 ]
-

@@ -2,6 +2,7 @@ from .stop_words    import STOP_WORDS
 from .cuisines_food import AMERICAN, EUROPEAN, ASIAN, DISHES
 from .tags          import FARWELL, GREETING, REJECT, CONFIRM, CANCEL, UPDATE, ORDER
 from .responds      import FARWELLS, ORDERING, REJECTIONS, CONFIRMATIONS, CANCELS, UPDATES, FOLLOWUPS, STUPID, APPROVAL
+from .sentences     import order, greetingOrder, changeOrder, reviseOrder
 
 import os
 import nltk

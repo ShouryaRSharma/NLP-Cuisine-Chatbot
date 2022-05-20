@@ -20,6 +20,7 @@ class ChatBot:
 
         self.__inital_conversation_state()
 
+        self.intent_classifier = load_model("intent_classifier.pickle",       path=f"{path}/models/")
         self.cuisine_classifier       = load_model("cuisine_classifier.pickle",       path=f"{path}/models/")
         self.named_entity_recognitior = load_model("named_entity_recognitior.pickle", path=f"{path}/models/")
 
@@ -64,9 +65,18 @@ class ChatBot:
 
    
     def intent_classification(self):
+        labels = ['greeting','order', 'update', 'farewell' , 'cancel', 'confirm', 'reject']
+
+        pred, raw = self.intent_classifier.predict([self.utterance])
+        predArr = []
+        for i in range(len(pred[0])):
+            if pred[0][i] == 1:
+                predArr.append(labels[i])
+        self.conv_logger.debug(f"Predicted Intents: {predArr}")
 
         intents = SUB_TAG_CLASSIFIER.predict([self.utterance])[0]
-        self.intents = intents
+        
+        self.intents = list(set(intents + predArr))
 
         self.conv_logger.debug(f"Predicted Intents: {self.intents}")
     
