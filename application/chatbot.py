@@ -36,23 +36,33 @@ class ChatBot:
         self.conv_logger.addHandler(conv_handler)
 
 
+    def __clear_order(self): 
+
+        self.cuisine = None
+        self.dishes = []
+
+
+    def __clear_attempts(self, clear_awating=False):
+
+        self.attempts = 0
+        self.suggested = False  
+
+        if clear_awating:
+            self.awaiting = None
+
+
     def __inital_conversation_state(self):
 
         self.in_conversation = False
 
-        self.awaiting_order_confirmation = False 
-        self.awaiting_remove_confirmation = False
-        self.awaiting_rejection = False
-   
-        self.cuisine = None
-        self.dishes = []
+        # order_confirmation, remove_confirmation, reject_confirmation
+        self.__clear_attempts(clear_awating=True)
+        self.__clear_order() 
 
         self.intents = []
         self.entities = {}
 
-        self.attempts = 0
-        self.suggestions = 0        
-
+   
     def intent_classification(self):
 
         intents = SUB_TAG_CLASSIFIER.predict([self.utterance])[0]
@@ -114,16 +124,12 @@ class ChatBot:
     def suggest_order(self):
 
         self.cuisine_classification()
-
-        # Remove previous suggestion if it has not been confirmed.
-        if self.suggestions > 0:
-            self.dishes[:-1]
         self.dishes.append(random.choice(DISHES[self.cuisine]))
 
         self.response.append(f"Can I recommend you to {random.choice(ORDER)} {self.__order_query()}?")
-        self.awaiting_order_confirmation = True
 
-        self.suggestions += 1
+        self.awaiting = "order_confirmation"
+        self.suggested = True
 
 
     def order(self):
@@ -134,14 +140,7 @@ class ChatBot:
             if self.attempts < 1:
                 self.response.append(f"{random.choice(ORDERING)}")
 
-            if 1 <= self.attempts < 2:
-                self.suggest_order()
-
-            if self.attempts >= 2:
-                self.response.append(random.choice(STUPID))
-
-            self.attempts += 1
-
+            self.__attempt_answers()
 
         # If entities does include any DISHES, add them and ask for confirmation.
         if any(self.entities["DISH"]):  
@@ -151,9 +150,17 @@ class ChatBot:
 
             self.response.append(f"Would you like to {random.choice(ORDER)} {self.__order_query()}?")
 
-            self.attempts    = 0
-            self.suggestions = 0
-            self.awaiting_order_confirmation = True
+            self.__clear_attempts(clear_awating=True)
+            self.awaiting = "order_confirmation"
+
+
+    def remove_order(self):
+ 
+        # Await confirmation if it is a complete cancel or update only
+        self.response.append(f"Do you want to cancel your order completely or just update {self.__order_query(cuisine=False)}?")
+
+        self.__clear_attempts(clear_awating=True)
+        self.awaiting = "remove_confirmation"
 
 
     def __initialize_conversation(self):
@@ -174,138 +181,151 @@ class ChatBot:
         self.__inital_conversation_state()
 
 
-    def __awaiting_order_confirmation(self):
-
-        if all(i not in ["confirm", "reject"] for i in self.intents): 
-            self.response.append(f"{random.choice(APPROVAL)} that you would like to {random.choice(ORDER)} {self.__order_query(cuisine=False)}.")
-
-        if "confirm" in self.intents: 
-
-            self.response.append(f"{random.choice(CONFIRMATIONS)} your order of {self.__order_query(cuisine=False)}.")
-            self.awaiting_order_confirmation = False
-            self.attempts    = 0
-            self.suggestions = 0
-
-            self.response.append(f"{random.choice(FOLLOWUPS)}")
-            self.awaiting_rejection = True
-
-        if "reject" in self.intents:
-
-            # If no, start over
-            self.cuisine = None
-            self.dishes = []
-
-            self.response.append(f"{random.choice(REJECTIONS)}. Please repeat your order.")
-            self.awaiting_order_confirmation = False
-
-
     def __awaiting_rejection(self):
 
         if all(i not in ["confirm", "reject"] for i in self.intents): 
-            self.response.append(f"{random.choice(APPROVAL)} if you need or don't need anything else.")
+            if self.attempts < 2:
+                self.response.append(f"{random.choice(APPROVAL)} if you need or don't need anything else.")
+                self.attempts += 1
+            else:
+                self.awaiting = None
+                self.__attempt_answers()
 
         if "reject" in self.intents:
 
             # If nothing else to do, finalize conversation
-            self.response.append(f"Your order of {self.__order_query(cuisine=False)} is on your way.")
+            if self.dishes:
+                self.response.append(f"Your order of {self.__order_query(cuisine=False)} is on your way.")
             self.__finalize_conversation()
 
         if "confirm" in self.intents: 
 
             # If yes, check other possible intents
-            self.awaiting_rejection = False
+            self.awaiting = None
+            self.__order_intent()
 
 
-    def remove_order(self):
- 
-        # Await confirmation if it is a complete cancel or update only
-        self.response.append(f"Do you want to cancel your order completely or just update {self.__order_query(cuisine=False)}?")
-        self.awaiting_remove_confirmation = True
+    def __awaiting_order_confirmation(self):
+
+        if all(i not in ["confirm", "reject"] for i in self.intents):
+            if self.attempts < 1:
+                self.response.append(f"{random.choice(APPROVAL)} that you would like to {random.choice(ORDER)} {self.__order_query(cuisine=False)}.")
+                self.attempts += 1
+            else:
+                self.awaiting = None
+                self.__attempt_answers()
+
+        if "confirm" in self.intents: 
+
+            self.__clear_attempts(clear_awating=True)
+
+            self.response.append(f"{random.choice(CONFIRMATIONS)} your order of {self.__order_query(cuisine=False)}.")
+            self.__anything_else()
+
+        if "reject" in self.intents:
+
+            self.__clear_attempts(clear_awating=True)
+
+            if self.suggested:
+                self.dishes[:-1]
+                self.response.append(f"{random.choice(REJECTIONS)}")
+                self.__anything_else()
+            else:
+                self.__clear_order() 
+                self.response.append(f"{random.choice(REJECTIONS)}. Please repeat your order.")
 
 
     def __awaiting_remove_confirmation(self):
 
         if all(i not in ["update", "cancel"] for i in self.intents): 
-            self.response.append(f"{random.choice(APPROVAL)} if you want to cancel your order completely or just update it.")
+            if self.attempts < 2:
+                self.response.append(f"{random.choice(APPROVAL)} if you want to cancel your order completely or just update it.")
+                self.attempts += 1
+            else:
+                self.awaiting = None
+                self.__attempt_answers()
 
         if "cancel" in self.intents: 
 
             self.response.append(f"{random.choice(CANCELS)} of {self.__order_query(cuisine=False)}.")
-            self.awaiting_remove_confirmation = False
-
-            # If cancel, end conversation
+            
+            # If cancel, clear and end conversation
             self.__finalize_conversation()
 
         if "update" in self.intents:
 
             # If update, start over
-            self.cuisine = None
-            self.dishes = []
+            self.__clear_order() 
 
             self.response.append(f"{random.choice(UPDATES)}")
-            self.awaiting_remove_confirmation = False
+            self.__clear_attempts(clear_awating=True)
 
 
     def default_answer(self):
 
         if  self.attempts < 1:
-            self.response.append(f"{random.choice(FOLLOWUPS)}")
-            self.awaiting_rejection = True
+            self.__anything_else()
 
-        if 1 <= self.attempts < 3:
+        self.__attempt_answers()
+
+
+    def __attempt_answers(self):
+
+        if 0 < self.attempts < 2:
             self.suggest_order()
         
-        if self.attempts >= 3:
+        if 1 < self.attempts < 3:
+            self.response.append(random.choice(STUPID))
+
+        if 2 < self.attempts < 4:
             self.__finalize_conversation()
         
-        self.attempts += 1
+        if self.in_conversation:
+            self.attempts += 1
+
+
+    def __anything_else(self):
+
+        self.response.append(f"{random.choice(FOLLOWUPS)}")
+        self.awaiting = "reject_confirmation"
+
+    
+    def __order_intent(self):
+
+        if "order" in self.intents:
+            self.order()
+
+        if any(i in ["update", "cancel"] for i in self.intents):
+            self.remove_order()
 
 
     def dialog_flow_manager(self):
 
         if not self.in_conversation:
             self.__initialize_conversation()
-
         else:
-            if self.awaiting_order_confirmation:
-                self.__awaiting_order_confirmation()
+            if self.awaiting:
 
-            if self.awaiting_rejection: 
-                self.__awaiting_rejection()
+                if self.awaiting == "reject_confirmation": 
+                    self.__awaiting_rejection()
 
-            if self.awaiting_remove_confirmation:
-                self.__awaiting_remove_confirmation()
+                elif self.awaiting == "order_confirmation":
+                    self.__awaiting_order_confirmation()
 
+                elif self.awaiting == "remove_confirmation":
+                    self.__awaiting_remove_confirmation()
+            else:
+                self.__order_intent()
 
-        if (not any([self.awaiting_order_confirmation, 
-                    self.awaiting_rejection, 
-                    self.awaiting_remove_confirmation]) 
-                    and self.in_conversation 
-                    and not self.response):
-
-            if "order" in self.intents:
-                self.order()
-
-            if any(i in ["update", "cancel"] for i in self.intents):
-                self.remove_order()
-
-            if not self.intents:
-                self.suggest_order()
-
-        if "farewell" in self.intents:
-            self.__finalize_conversation()
-        
-        if not self.response:
+        if self.in_conversation and not self.response:
             self.default_answer()
 
         log_msg = [f"Model Variables:\n",
                    f"\t\t\tIn Conversation: {self.in_conversation}\n",
                    f"\t\t\tDishes: {self.dishes}\n"
-                   f"\t\t\tAwaiting order confirmation: {self.awaiting_order_confirmation}\n",
-                   f"\t\t\tAwaiting remove confirmation: {self.awaiting_remove_confirmation}\n",
-                   f"\t\t\tAwaiting rejection: {self.awaiting_rejection}\n",
+                   f"\t\t\tAwaiting: {self.awaiting}\n",
                    f"\t\t\tNumber of attempts: {self.attempts}\n",
-                   f"\t\t\tNumber of suggestions: {self.suggestions}\n",]
+                   f"\t\t\tSuggestions: {self.suggested}\n",]
 
         self.conv_logger.debug("".join(log_msg))
 
