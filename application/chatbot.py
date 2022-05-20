@@ -208,7 +208,7 @@ class ChatBot:
     def __awaiting_order_confirmation(self):
 
         if all(i not in ["confirm", "reject"] for i in self.intents):
-            if self.attempts < 1:
+            if self.attempts < 2:
                 self.response.append(f"{random.choice(APPROVAL)} that you would like to {random.choice(ORDER)} {self.__order_query(cuisine=False)}.")
                 self.attempts += 1
             else:
