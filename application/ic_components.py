@@ -528,10 +528,7 @@ def generateDataset():
     food_dataset = pd.read_csv("./data/food.csv")
     # diaqualify foods with special characters, lowercase and extract results from "description" column
     foods = food_dataset[food_dataset["description"].str.contains("[^a-zA-Z ]") == False]["description"].apply(lambda food: food.lower())
-
-   
-    foods = foods[foods["description"].str.contains("[^a-zA-Z ]") == False]["description"].apply(lambda food: food.lower())
-    
+ 
     # filter out foods with more than 2 words, drop any duplicates
     foods = foods[foods.str.split().apply(len) <= 2].drop_duplicates()
     one_worded_foods = foods[foods.str.split().apply(len) == 1]
