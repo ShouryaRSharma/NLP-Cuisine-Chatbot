@@ -1,0 +1,30 @@
+2022-05-20 22:55:59,045 - INFO - USER: Hey! I would like to order some dumplings please.
+
+2022-05-20 22:56:01,881 - INFO - CHATBOT: Hey! Would you like to book dumplings, from the Asian cuisine?
+
+
+
+2022-05-20 22:56:25,521 - INFO - USER: Yes please.
+
+2022-05-20 22:56:25,712 - INFO - CHATBOT: OK, thank you for confirming your order of dumplings. Would you like to add to your current order?
+
+
+
+2022-05-20 22:56:59,815 - INFO - USER: Correct, i would like to add some pad thai
+
+2022-05-20 22:57:00,006 - INFO - CHATBOT: Would you like to book dumplings, pad, from the Asian cuisine?
+
+
+
+2022-05-20 22:57:39,413 - INFO - USER: Yes.
+
+2022-05-20 22:57:39,605 - INFO - CHATBOT: Thank you for confirming your order of dumplings, pad. Do you want to add something to your current order?
+
+
+
+2022-05-20 22:57:54,825 - INFO - USER: No thank you, that would be all!
+
+2022-05-20 22:57:55,017 - INFO - CHATBOT: Your order of dumplings, pad is on your way. Thanks for using our service! See you!
+
+
+

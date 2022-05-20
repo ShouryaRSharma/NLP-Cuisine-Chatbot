@@ -1,0 +1,81 @@
+2022-05-20 23:25:49,832 - INFO - USER: Hello there!
+
+2022-05-20 23:25:51,561 - DEBUG - AI Predicted Intents: ['order']
+2022-05-20 23:25:52,725 - DEBUG - Predicted Intents: ['greeting']
+2022-05-20 23:25:52,737 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 23:25:52,738 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-20 23:25:52,738 - INFO - CHATBOT: Greetings! Would you fancy food from the American, Asian or European cuisine?
+
+
+
+2022-05-20 23:26:01,921 - INFO - USER: Hmm, I would like some european food pls.
+
+2022-05-20 23:26:02,046 - DEBUG - AI Predicted Intents: ['reject']
+2022-05-20 23:26:02,048 - DEBUG - Predicted Intents: ['order']
+2022-05-20 23:26:02,111 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['european'], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': ['pls.']}
+2022-05-20 23:26:02,112 - DEBUG - Predicted Cuisine: European
+2022-05-20 23:26:02,113 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pizza']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-20 23:26:02,113 - INFO - CHATBOT: Can I recommend you to like pizza, from the European cuisine?
+
+
+
+2022-05-20 23:26:10,532 - INFO - USER: Oh my gosh, yes please.
+
+2022-05-20 23:26:10,658 - DEBUG - AI Predicted Intents: []
+2022-05-20 23:26:10,659 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 23:26:10,724 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': ['gosh,']}
+2022-05-20 23:26:10,724 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pizza']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 23:26:10,725 - INFO - CHATBOT: OK, thank you for confirming your order of pizza. Would you like anything else?
+
+
+
+2022-05-20 23:26:21,696 - INFO - USER: Yes, I changed my mind I would like to update my order.
+
+2022-05-20 23:26:21,821 - DEBUG - AI Predicted Intents: ['confirm']
+2022-05-20 23:26:21,823 - DEBUG - Predicted Intents: ['confirm', 'update']
+2022-05-20 23:26:21,884 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 23:26:21,885 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pizza']
+			Awaiting: remove_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 23:26:21,885 - INFO - CHATBOT: Do you want to cancel your order completely or just update pizza?
+
+
+
+2022-05-20 23:26:33,066 - INFO - USER: I don't want to cancel it, just update it to pizza instead.
+
+2022-05-20 23:26:33,192 - DEBUG - AI Predicted Intents: []
+2022-05-20 23:26:33,194 - DEBUG - Predicted Intents: ['cancel']
+2022-05-20 23:26:33,259 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['pizza'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 23:26:33,260 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 23:26:33,260 - INFO - CHATBOT: OK, I have cancelled your order of pizza. Thank you for using our service! Goodbye!
+
+
+

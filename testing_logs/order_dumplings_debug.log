@@ -1,0 +1,98 @@
+2022-05-20 22:41:30,025 - INFO - USER: I want dumplings.
+
+2022-05-20 22:41:31,719 - DEBUG - AI Predicted Intents: ['reject']
+2022-05-20 22:41:32,919 - DEBUG - Predicted Intents: ['order']
+2022-05-20 22:41:32,930 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['dumplings.'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:41:32,933 - DEBUG - Predicted Cuisine: Asian
+2022-05-20 22:41:32,933 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings.']
+			Awaiting: order_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 22:41:32,934 - INFO - CHATBOT: Sup! Would you like to get dumplings., from the Asian cuisine?
+
+
+
+2022-05-20 22:41:36,159 - INFO - USER: I want dumplings.
+
+2022-05-20 22:41:36,178 - DEBUG - AI Predicted Intents: ['reject']
+2022-05-20 22:41:36,180 - DEBUG - Predicted Intents: ['order']
+2022-05-20 22:41:36,190 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['dumplings.'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:41:36,191 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings.']
+			Awaiting: order_confirmation
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-20 22:41:36,191 - INFO - CHATBOT: Would you please approve that you would like to order dumplings..
+
+
+
+2022-05-20 22:41:43,263 - INFO - USER: I want dumplings.
+
+2022-05-20 22:41:43,387 - DEBUG - AI Predicted Intents: ['reject']
+2022-05-20 22:41:43,389 - DEBUG - Predicted Intents: ['order']
+2022-05-20 22:41:43,455 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['dumplings.'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:41:43,456 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings.']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: False
+
+2022-05-20 22:41:43,456 - INFO - CHATBOT: Can you please confirm that you would like to book dumplings..
+
+
+
+2022-05-20 22:41:47,369 - INFO - USER: I want dumplings.
+
+2022-05-20 22:41:47,437 - DEBUG - AI Predicted Intents: ['reject']
+2022-05-20 22:41:47,439 - DEBUG - Predicted Intents: ['order']
+2022-05-20 22:41:47,475 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['dumplings.'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:41:47,476 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings.']
+			Awaiting: None
+			Number of attempts: 3
+			Suggestions: False
+
+2022-05-20 22:41:47,476 - INFO - CHATBOT: Don't get that. Please take it again.
+
+
+
+2022-05-20 22:41:49,132 - INFO - USER: I want dumplings.
+
+2022-05-20 22:41:49,256 - DEBUG - AI Predicted Intents: ['reject']
+2022-05-20 22:41:49,258 - DEBUG - Predicted Intents: ['order']
+2022-05-20 22:41:49,319 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['dumplings.'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:41:49,321 - DEBUG - Predicted Cuisine: Asian
+2022-05-20 22:41:49,322 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings.', 'dumplings.']
+			Awaiting: order_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 22:41:49,322 - INFO - CHATBOT: Would you like to like dumplings., dumplings., from the Asian cuisine?
+
+
+
+2022-05-20 22:41:50,685 - INFO - USER: I want dumplings.
+
+2022-05-20 22:41:50,806 - DEBUG - AI Predicted Intents: ['reject']
+2022-05-20 22:41:50,807 - DEBUG - Predicted Intents: ['order']
+2022-05-20 22:41:50,870 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['dumplings.'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:41:50,871 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings.', 'dumplings.']
+			Awaiting: order_confirmation
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-20 22:41:50,872 - INFO - CHATBOT: Would you please approve that you would like to like dumplings., dumplings..
+
+
+

@@ -1,0 +1,78 @@
+2022-05-20 21:42:16,529 - INFO - USER: no.
+
+2022-05-20 21:42:16,654 - DEBUG - AI Predicted Intents: ['update']
+2022-05-20 21:42:16,655 - DEBUG - Predicted Intents: ['reject']
+2022-05-20 21:42:16,720 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 21:42:16,721 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-20 21:42:16,722 - INFO - CHATBOT: Hey! Would you fancy food from the American, Asian or European cuisine?
+
+
+
+2022-05-20 21:42:19,329 - INFO - USER: no.
+
+2022-05-20 21:42:19,396 - DEBUG - AI Predicted Intents: ['update']
+2022-05-20 21:42:19,398 - DEBUG - Predicted Intents: ['reject']
+2022-05-20 21:42:19,434 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 21:42:19,437 - DEBUG - Predicted Cuisine: American
+2022-05-20 21:42:19,438 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['bbq']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-20 21:42:19,439 - INFO - CHATBOT: Can I recommend you to want bbq, from the American cuisine?
+
+
+
+2022-05-20 21:42:25,906 - INFO - USER: no.
+
+2022-05-20 21:42:26,034 - DEBUG - AI Predicted Intents: ['update']
+2022-05-20 21:42:26,036 - DEBUG - Predicted Intents: ['reject']
+2022-05-20 21:42:26,100 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 21:42:26,101 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 21:42:26,101 - INFO - CHATBOT: Ah I am sorry about that. Please repeat your order.
+
+
+
+2022-05-20 21:42:28,222 - INFO - USER: no.
+
+2022-05-20 21:42:28,349 - DEBUG - AI Predicted Intents: ['update']
+2022-05-20 21:42:28,351 - DEBUG - Predicted Intents: ['reject']
+2022-05-20 21:42:28,415 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 21:42:28,416 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: reject_confirmation
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-20 21:42:28,417 - INFO - CHATBOT: Do you require anything else?
+
+
+
+2022-05-20 21:42:30,251 - INFO - USER: no.
+
+2022-05-20 21:42:30,372 - DEBUG - AI Predicted Intents: ['update']
+2022-05-20 21:42:30,374 - DEBUG - Predicted Intents: ['reject']
+2022-05-20 21:42:30,435 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 21:42:30,436 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 21:42:30,437 - INFO - CHATBOT: Thank you for using our service! Cheers!
