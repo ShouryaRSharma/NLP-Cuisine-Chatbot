@@ -1,0 +1,5 @@
+FROM training:latest
+
+ENTRYPOINT ["python", "./application/app.py"]
+
+
