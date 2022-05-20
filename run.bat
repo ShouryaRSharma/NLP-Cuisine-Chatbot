@@ -1,0 +1,1 @@
+docker build -m 2g -t training -f "TrainingDocker" . & docker run --gpus all training
