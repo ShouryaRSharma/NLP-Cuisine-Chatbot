@@ -1,0 +1,518 @@
+2022-05-21 01:17:58,898 - INFO - USER: Hello
+
+2022-05-21 01:18:02,687 - DEBUG - Predicted Intents: ['greeting']
+2022-05-21 01:18:36,231 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:18:36,239 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:18:36,240 - INFO - CHATBOT: Hey! Would you like to order American, Asian or European food?
+
+
+
+2022-05-21 01:18:42,178 - INFO - USER: Asian
+
+2022-05-21 01:18:42,214 - DEBUG - Predicted Intents: []
+2022-05-21 01:18:42,728 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['Asian'], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:18:42,729 - DEBUG - Predicted Cuisine: Asian
+2022-05-21 01:18:42,729 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-21 01:18:42,730 - INFO - CHATBOT: Can I recommend you to want dumplings, from the Asian cuisine?
+
+
+
+2022-05-21 01:18:48,918 - INFO - USER: Okay yeah
+
+2022-05-21 01:18:48,926 - DEBUG - Predicted Intents: []
+2022-05-21 01:18:48,950 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:18:48,950 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: None
+			Number of attempts: 3
+			Suggestions: True
+
+2022-05-21 01:18:48,952 - INFO - CHATBOT: Don't get that. Please take it again.
+
+
+
+2022-05-21 01:18:53,166 - INFO - USER: Yes
+
+2022-05-21 01:18:53,170 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:18:53,193 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:18:53,193 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:18:53,195 - INFO - CHATBOT: Thanks for using our service! See you!
+
+
+
+2022-05-21 01:18:59,752 - INFO - USER: Hi
+
+2022-05-21 01:18:59,756 - DEBUG - Predicted Intents: ['greeting']
+2022-05-21 01:18:59,908 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:18:59,909 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:18:59,910 - INFO - CHATBOT: Sup! Would you like to order American, Asian or European food?
+
+
+
+2022-05-21 01:19:04,656 - INFO - USER: I'd like asian
+
+2022-05-21 01:19:04,669 - DEBUG - Predicted Intents: ['order']
+2022-05-21 01:19:04,695 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['asian'], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:04,697 - DEBUG - Predicted Cuisine: Asian
+2022-05-21 01:19:04,697 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-21 01:19:04,699 - INFO - CHATBOT: Can I recommend you to want dumplings, from the Asian cuisine?
+
+
+
+2022-05-21 01:19:07,412 - INFO - USER: Yes
+
+2022-05-21 01:19:07,414 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:19:07,436 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:07,439 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:19:07,441 - INFO - CHATBOT: OK, thank you for confirming your order of dumplings. Would you like to add to your current order?
+
+
+
+2022-05-21 01:19:11,191 - INFO - USER: Yes
+
+2022-05-21 01:19:11,194 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:19:11,215 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:11,216 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: reject_confirmation
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:19:11,217 - INFO - CHATBOT: Is there anything more you want?
+
+
+
+2022-05-21 01:19:18,744 - INFO - USER: I'd like chicken
+
+2022-05-21 01:19:18,748 - DEBUG - Predicted Intents: ['order']
+2022-05-21 01:19:18,777 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['chicken'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:18,778 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: reject_confirmation
+			Number of attempts: 2
+			Suggestions: False
+
+2022-05-21 01:19:18,780 - INFO - CHATBOT: Can you please confirm if you need or don't need anything else.
+
+
+
+2022-05-21 01:19:21,728 - INFO - USER: Yes
+
+2022-05-21 01:19:21,730 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:19:21,751 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:21,752 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: None
+			Number of attempts: 3
+			Suggestions: False
+
+2022-05-21 01:19:21,753 - INFO - CHATBOT: Sorry I am stupid and don't understand. Please rephrase it.
+
+
+
+2022-05-21 01:19:38,761 - INFO - USER: Yes
+
+2022-05-21 01:19:38,764 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:19:38,785 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:38,785 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:19:38,787 - INFO - CHATBOT: Thanks for using our service! See you!
+
+
+
+2022-05-21 01:19:43,110 - INFO - USER: Hi
+
+2022-05-21 01:19:43,112 - DEBUG - Predicted Intents: ['greeting']
+2022-05-21 01:19:43,135 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:43,136 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:19:43,137 - INFO - CHATBOT: Hi! Would you like to order American, Asian or European food?
+
+
+
+2022-05-21 01:19:46,160 - INFO - USER: I'd like asian
+
+2022-05-21 01:19:46,162 - DEBUG - Predicted Intents: ['order']
+2022-05-21 01:19:46,199 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['asian'], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:46,200 - DEBUG - Predicted Cuisine: Asian
+2022-05-21 01:19:46,200 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-21 01:19:46,201 - INFO - CHATBOT: Can I recommend you to order dumplings, from the Asian cuisine?
+
+
+
+2022-05-21 01:19:48,748 - INFO - USER: Okay
+
+2022-05-21 01:19:48,750 - DEBUG - Predicted Intents: []
+2022-05-21 01:19:48,802 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:48,803 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: None
+			Number of attempts: 3
+			Suggestions: True
+
+2022-05-21 01:19:48,805 - INFO - CHATBOT: Don't get that. Please take it again.
+
+
+
+2022-05-21 01:19:52,605 - INFO - USER: Hi
+
+2022-05-21 01:19:52,607 - DEBUG - Predicted Intents: ['greeting']
+2022-05-21 01:19:52,662 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:52,663 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:19:52,664 - INFO - CHATBOT: Thank you for using our service! Have a great day!
+
+
+
+2022-05-21 01:19:56,702 - INFO - USER: Hi
+
+2022-05-21 01:19:56,705 - DEBUG - Predicted Intents: ['greeting']
+2022-05-21 01:19:56,896 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:56,897 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:19:56,898 - INFO - CHATBOT: Hi! Would you like to order American, Asian or European food?
+
+
+
+2022-05-21 01:19:59,151 - INFO - USER: Asian
+
+2022-05-21 01:19:59,154 - DEBUG - Predicted Intents: []
+2022-05-21 01:19:59,175 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['Asian'], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:19:59,176 - DEBUG - Predicted Cuisine: Asian
+2022-05-21 01:19:59,177 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-21 01:19:59,178 - INFO - CHATBOT: Can I recommend you to book pad thai, from the Asian cuisine?
+
+
+
+2022-05-21 01:20:01,515 - INFO - USER: Yes
+
+2022-05-21 01:20:01,517 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:20:01,540 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:01,541 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:20:01,542 - INFO - CHATBOT: Thank you for confirming your order of pad thai. Would you like anything else?
+
+
+
+2022-05-21 01:20:03,563 - INFO - USER: Yes
+
+2022-05-21 01:20:03,565 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:20:03,589 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:03,590 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai']
+			Awaiting: reject_confirmation
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:20:03,592 - INFO - CHATBOT: Is there anything more you'd like?
+
+
+
+2022-05-21 01:20:04,800 - INFO - USER: Yes
+
+2022-05-21 01:20:04,803 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:20:04,822 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:05,294 - DEBUG - Predicted Cuisine: Asian
+2022-05-21 01:20:05,295 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai', 'pad thai']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-21 01:20:05,296 - INFO - CHATBOT: Can I recommend you to like pad thai, pad thai, from the Asian cuisine?
+
+
+
+2022-05-21 01:20:09,096 - INFO - USER: No
+
+2022-05-21 01:20:09,100 - DEBUG - Predicted Intents: ['reject']
+2022-05-21 01:20:09,123 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:09,124 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:20:09,125 - INFO - CHATBOT: Apologies. Please repeat your order.
+
+
+
+2022-05-21 01:20:13,242 - INFO - USER: Cancel
+
+2022-05-21 01:20:13,244 - DEBUG - Predicted Intents: ['cancel']
+2022-05-21 01:20:13,280 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': ['Cancel']}
+2022-05-21 01:20:13,281 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: remove_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:20:13,283 - INFO - CHATBOT: Do you want to cancel your order completely or just update ?
+
+
+
+2022-05-21 01:20:14,801 - INFO - USER: Cancel
+
+2022-05-21 01:20:14,804 - DEBUG - Predicted Intents: ['cancel']
+2022-05-21 01:20:14,825 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': ['Cancel']}
+2022-05-21 01:20:14,825 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:20:14,827 - INFO - CHATBOT: OK, I have removed your order of . Thank you for using our service! Goodbye!
+
+
+
+2022-05-21 01:20:18,268 - INFO - USER: Hi
+
+2022-05-21 01:20:18,271 - DEBUG - Predicted Intents: ['greeting']
+2022-05-21 01:20:18,290 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:18,291 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:20:18,292 - INFO - CHATBOT: Hey! Would you fancy food from the American, Asian or European cuisine?
+
+
+
+2022-05-21 01:20:20,410 - INFO - USER: Asian
+
+2022-05-21 01:20:20,412 - DEBUG - Predicted Intents: []
+2022-05-21 01:20:20,434 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['Asian'], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:20,435 - DEBUG - Predicted Cuisine: Asian
+2022-05-21 01:20:20,436 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-21 01:20:20,437 - INFO - CHATBOT: Can I recommend you to want pad thai, from the Asian cuisine?
+
+
+
+2022-05-21 01:20:22,935 - INFO - USER: Yes
+
+2022-05-21 01:20:22,938 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:20:22,961 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:22,961 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:20:22,962 - INFO - CHATBOT: OK, thank you for confirming your order of pad thai. Would you like to add anything else?
+
+
+
+2022-05-21 01:20:26,525 - INFO - USER: Yes
+
+2022-05-21 01:20:26,528 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:20:26,547 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:26,548 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai']
+			Awaiting: reject_confirmation
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:20:26,549 - INFO - CHATBOT: Would you like to add to your current order?
+
+
+
+2022-05-21 01:20:28,908 - INFO - USER: Yes
+
+2022-05-21 01:20:28,911 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:20:28,930 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:28,933 - DEBUG - Predicted Cuisine: Asian
+2022-05-21 01:20:28,933 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai', 'dumplings']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-21 01:20:28,934 - INFO - CHATBOT: Can I recommend you to buy pad thai, dumplings, from the Asian cuisine?
+
+
+
+2022-05-21 01:20:34,673 - INFO - USER: Yes
+
+2022-05-21 01:20:34,675 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:20:34,699 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:34,700 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai', 'dumplings']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:20:34,701 - INFO - CHATBOT: OK, thank you for confirming your order of pad thai, dumplings. Do you require anything else?
+
+
+
+2022-05-21 01:20:40,418 - INFO - USER: No that's all thanks
+
+2022-05-21 01:20:40,437 - DEBUG - Predicted Intents: ['reject']
+2022-05-21 01:20:40,460 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:40,461 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:20:40,463 - INFO - CHATBOT: Your order of pad thai, dumplings is on your way. Thank you for using our service! Goodbye!
+
+
+
+2022-05-21 01:20:45,738 - INFO - USER: Hi
+
+2022-05-21 01:20:45,741 - DEBUG - Predicted Intents: ['greeting']
+2022-05-21 01:20:45,797 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:45,798 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-21 01:20:45,799 - INFO - CHATBOT: Sup! Would you like to order American, Asian or European food?
+
+
+
+2022-05-21 01:20:51,273 - INFO - USER: I think I'd like Asian food
+
+2022-05-21 01:20:51,281 - DEBUG - Predicted Intents: ['order']
+2022-05-21 01:20:51,473 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['Asian'], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:51,474 - DEBUG - Predicted Cuisine: Asian
+2022-05-21 01:20:51,474 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-21 01:20:51,475 - INFO - CHATBOT: Can I recommend you to want pad thai, from the Asian cuisine?
+
+
+
+2022-05-21 01:20:56,412 - INFO - USER: Yes pad thai is great
+
+2022-05-21 01:20:56,418 - DEBUG - Predicted Intents: ['confirm']
+2022-05-21 01:20:56,444 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['thai'], 'DISH': ['pad'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': ['great'], 'RESTAURANT_NAME': []}
+2022-05-21 01:20:56,445 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['pad thai']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:20:56,447 - INFO - CHATBOT: OK, thank you for confirming your order of pad thai. Would you like to add anything else?
+
+
+
+2022-05-21 01:21:03,548 - INFO - USER: No that's all thanks
+
+2022-05-21 01:21:03,551 - DEBUG - Predicted Intents: ['reject']
+2022-05-21 01:21:03,573 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-21 01:21:03,574 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-21 01:21:03,575 - INFO - CHATBOT: Your order of pad thai is on your way. Thank you for using our service! Have a great day!
+
+
+
