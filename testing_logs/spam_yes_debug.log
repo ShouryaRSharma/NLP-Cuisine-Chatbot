@@ -1,0 +1,98 @@
+2022-05-20 22:14:00,762 - INFO - USER: yes.
+
+2022-05-20 22:14:02,362 - DEBUG - AI Predicted Intents: ['farewell']
+2022-05-20 22:14:03,521 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 22:14:03,532 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:14:03,532 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-20 22:14:03,533 - INFO - CHATBOT: Sup! Would you like to order American, Asian or European food?
+
+
+
+2022-05-20 22:14:06,406 - INFO - USER: yes.
+
+2022-05-20 22:14:06,425 - DEBUG - AI Predicted Intents: ['farewell']
+2022-05-20 22:14:06,426 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 22:14:06,436 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:14:06,439 - DEBUG - Predicted Cuisine: American
+2022-05-20 22:14:06,440 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['bbq']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-20 22:14:06,440 - INFO - CHATBOT: Can I recommend you to want bbq, from the American cuisine?
+
+
+
+2022-05-20 22:14:09,117 - INFO - USER: yes.
+
+2022-05-20 22:14:09,153 - DEBUG - AI Predicted Intents: ['farewell']
+2022-05-20 22:14:09,155 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 22:14:09,175 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:14:09,176 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['bbq']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 22:14:09,177 - INFO - CHATBOT: Thank you for confirming your order of bbq. Do you require anything else?
+
+
+
+2022-05-20 22:14:11,686 - INFO - USER: yes.
+
+2022-05-20 22:14:11,754 - DEBUG - AI Predicted Intents: ['farewell']
+2022-05-20 22:14:11,756 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 22:14:11,791 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:14:11,792 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['bbq']
+			Awaiting: reject_confirmation
+			Number of attempts: 1
+			Suggestions: False
+
+2022-05-20 22:14:11,792 - INFO - CHATBOT: Do you require anything else?
+
+
+
+2022-05-20 22:14:15,404 - INFO - USER: yes.
+
+2022-05-20 22:14:15,528 - DEBUG - AI Predicted Intents: ['farewell']
+2022-05-20 22:14:15,530 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 22:14:15,593 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:14:15,595 - DEBUG - Predicted Cuisine: American
+2022-05-20 22:14:15,595 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['bbq', 'burger']
+			Awaiting: order_confirmation
+			Number of attempts: 2
+			Suggestions: True
+
+2022-05-20 22:14:15,596 - INFO - CHATBOT: Can I recommend you to get bbq, burger, from the American cuisine?
+
+
+
+2022-05-20 22:14:20,359 - INFO - USER: yes.
+
+2022-05-20 22:14:20,484 - DEBUG - AI Predicted Intents: ['farewell']
+2022-05-20 22:14:20,486 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 22:14:20,547 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:14:20,548 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['bbq', 'burger']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 22:14:20,548 - INFO - CHATBOT: OK, thank you for confirming your order of bbq, burger. Would you like to add anything else?
+
+
+

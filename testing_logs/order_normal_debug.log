@@ -1,0 +1,82 @@
+2022-05-20 22:59:48,107 - INFO - USER: Hey! I would like to order some dumplings please.
+
+2022-05-20 22:59:50,516 - DEBUG - AI Predicted Intents: ['order', 'reject']
+2022-05-20 22:59:51,684 - DEBUG - Predicted Intents: ['greeting', 'order']
+2022-05-20 22:59:51,746 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': ['dumplings'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 22:59:51,750 - DEBUG - Predicted Cuisine: Asian
+2022-05-20 22:59:51,750 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: order_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 22:59:51,751 - INFO - CHATBOT: Hi! Would you like to get dumplings, from the Asian cuisine?
+
+
+
+2022-05-20 22:59:59,921 - INFO - USER: Yes please.
+
+2022-05-20 23:00:00,045 - DEBUG - AI Predicted Intents: ['farewell']
+2022-05-20 23:00:00,047 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 23:00:00,109 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 23:00:00,110 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 23:00:00,110 - INFO - CHATBOT: Thank you for confirming your order of dumplings. Would you like anything else?
+
+
+
+2022-05-20 23:00:08,028 - INFO - USER: Correct, i would like to add some pad thai
+
+2022-05-20 23:00:08,154 - DEBUG - AI Predicted Intents: ['reject']
+2022-05-20 23:00:08,157 - DEBUG - Predicted Intents: ['confirm', 'order']
+2022-05-20 23:00:08,221 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': ['thai'], 'DISH': ['pad'], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 23:00:08,223 - DEBUG - Predicted Cuisine: Asian
+2022-05-20 23:00:08,224 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings', 'pad']
+			Awaiting: order_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 23:00:08,224 - INFO - CHATBOT: Would you like to book dumplings, pad, from the Asian cuisine?
+
+
+
+2022-05-20 23:00:15,979 - INFO - USER: Yes.
+
+2022-05-20 23:00:16,104 - DEBUG - AI Predicted Intents: ['farewell']
+2022-05-20 23:00:16,106 - DEBUG - Predicted Intents: ['confirm']
+2022-05-20 23:00:16,167 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 23:00:16,168 - DEBUG - Model Variables:
+			In Conversation: True
+			Dishes: ['dumplings', 'pad']
+			Awaiting: reject_confirmation
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 23:00:16,168 - INFO - CHATBOT: Thank you for confirming your order of dumplings, pad. Do you want to add something to your current order?
+
+
+
+2022-05-20 23:00:24,328 - INFO - USER: No thank you, that would be all!
+
+2022-05-20 23:00:24,453 - DEBUG - AI Predicted Intents: ['greeting']
+2022-05-20 23:00:24,455 - DEBUG - Predicted Intents: ['reject']
+2022-05-20 23:00:24,518 - DEBUG - Predicted NER: {'AMENITY': [], 'CUISINE': [], 'DISH': [], 'HOURS': [], 'LOCATION': [], 'PRICE': [], 'RATING': [], 'RESTAURANT_NAME': []}
+2022-05-20 23:00:24,519 - DEBUG - Model Variables:
+			In Conversation: False
+			Dishes: []
+			Awaiting: None
+			Number of attempts: 0
+			Suggestions: False
+
+2022-05-20 23:00:24,519 - INFO - CHATBOT: Your order of dumplings, pad is on your way. Thanks for using our service! See you!
+
+
+

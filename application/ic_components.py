@@ -528,7 +528,7 @@ def generateDataset():
     food_dataset = pd.read_csv("./data/food.csv")
     
     # remove foods with special characters in description column
-    food_dataset = food_dataset[food_dataset["description"].str.contains("[^a-zA-Z0-9\s]" == False)]["description"].apply(lambda food: food.lower())
+    foods = food_dataset[food_dataset["description"].str.contains("[^a-zA-Z0-9\s]" == False)]["description"].apply(lambda food: food.lower())
     
     # filter out foods with more than 2 words, drop any duplicates
     foods = foods[foods.str.split().str.len() <= 2].drop_duplicates()

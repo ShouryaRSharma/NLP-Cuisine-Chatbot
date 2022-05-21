@@ -19,7 +19,8 @@ CONFIRM = [
     "yes",
     "correct",
     "right",
-    "true"
+    "true",
+    "yeah"
 ]
 
 REJECT = [

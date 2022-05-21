@@ -11,16 +11,17 @@ from ner_components import ENTITIES
 
 class ChatBot:
 
-    def __init__(self, name, path=r"./application", log_level=logging.WARNING):
+    def __init__(self, name, path=r"./application", log_level=logging.WARNING, intent_ai=False):
 
         self.name = name
+        self.intent_ai = intent_ai
 
         self.response  = []
         self.utterance = None
 
         self.__inital_conversation_state()
 
-        # self.intent_classifier = load_model("intent_classifier.pickle",       path=f"{path}/models/")
+        self.intent_classifier        = load_model("intent_classifier.pickle",        path=f"{path}/models/")
         self.cuisine_classifier       = load_model("cuisine_classifier.pickle",       path=f"{path}/models/")
         self.named_entity_recognitior = load_model("named_entity_recognitior.pickle", path=f"{path}/models/")
 
@@ -65,19 +66,21 @@ class ChatBot:
 
    
     def intent_classification(self):
-        # labels = ['greeting','order', 'update', 'farewell' , 'cancel', 'confirm', 'reject']
 
-        # pred, raw = self.intent_classifier.predict([self.utterance])
-        predArr = []
-        # for i in range(len(pred[0])):
-        #     if pred[0][i] == 1:
-        #         predArr.append(labels[i])
-        # self.conv_logger.debug(f"Predicted Intents: {predArr}")
+        if self.intent_ai:
 
-        intents = SUB_TAG_CLASSIFIER.predict([self.utterance])[0]
+            labels = ['greeting','order', 'update', 'farewell' , 'cancel', 'confirm', 'reject']
+
+            pred, _ = self.intent_classifier.predict([self.utterance])
+            predArr = []
+            for i in range(len(pred[0])):
+                if pred[0][i] == 1:
+                    predArr.append(labels[i])
+                    
+            self.conv_logger.debug(f"AI Predicted Intents: {predArr}")
+
+        self.intents = SUB_TAG_CLASSIFIER.predict([self.utterance])[0]
         
-        self.intents = list(set(intents + predArr))
-
         self.conv_logger.debug(f"Predicted Intents: {self.intents}")
     
 
